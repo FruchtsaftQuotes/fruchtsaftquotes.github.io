@@ -1,22 +1,68 @@
-<!DOCTYPE html>
-<html lang="de">
+<!doctype html>
+<html lang="de" prefix="og: http://ogp.me/ns#">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1.0,width=device-width">
-  <title>Fruchtsaft</title>
-  <script src="/app.js" async></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="og:title" content="Fruchtsaft">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="http://fruchtsaft.veyxos.de/assets/img/logotype.jpg">
+    <meta property="og:image:secure_url" content="https://fruchtsaft.veyxos.de/assets/img/logotype.jpg">
+    <meta property="og:url" content="https://fruchtsaft.veyxos.de/">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="A lime slice">
+    <meta property="og:description" content="Fruchtsaft Zitat-Aggregator\nZufällige Zitate">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="Fruchtsaft">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@fruchtsaftbot">
+    <meta name="twitter:creator" content="@veyxos">
+    <title>Fruchtsaft</title>
+    <link rel="preload" as="font" src="/assets/fonts/Gotham/GothamBook.woff2" format="font/woff2" crossorigin>
+    <link rel="preload" as="font" src="/assets/fonts/Gotham/GothamBookItalic.woff2" format="font/woff2" crossorigin>
+    <link rel="preload" as="font" src="/assets/fonts/Gotham/GothamLight.woff2" format="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="stylesheet" href="/assets/css/fonts.css">
+    <script src="assets/js/app.js" defer></script>
 </head>
 <body>
-  <header>
-    <h1>Fruchtsaft</h1>
-    <em>Zitataggregator</em>
-  </header>
-  <main>
-    <p>I'm working on it, okay?!<br><a href="https://api.fruchtsaft.veyxos.de">Fruchtsaft API</a></p>
-  </main>
-  <footer>
-    <hr>
-    <address>&copy; 2018 <a href="mailto:veyxos@gmail.com" rel="author">Mike Kühnapfel</a></address>
-  </footer>
+    <header id="siteHeader">
+        <a href="#!" title="Fruchtsaft" aria-label="Fruchtsaft"> <!-- Change title to random pun via JS -->
+            <img src="/assets/img/logo.svg" alt="A lime slice" />
+        </a>
+    </header>
+    <main>
+        <div id="quoteWrapper">
+            <article id="quote">
+                <div id="nsfwHelper" title="Dieses Zitat ist Not Safe For Work" aria-label="NSFW"><img src="/assets/img/nsfw.svg" alt="NSFW"></div>
+                <section class="content">
+                    <div class="loading">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </section>
+                <section class="action">
+                    <button id="new" title="Neues Zitat" aria-label="Ein neues Zitat raussuchen">Neu</button><button id="share" class="inactive" title="Teilen" aria-label="Kommt bald – Dieses Zitat teilen">Teilen</button>
+                </section>
+            </article>
+        </div>
+        <footer id="quoteFooter">
+            <div># <span id="codename">Loading…</span></div>
+            <div><img src="/assets/img/category.svg" alt="@" /> <select id="category"><option value="loading">Loading…</option></select></div>
+            <div><img src="/assets/img/nsfw.svg"> <select id="nsfw"><option value="0" selected>Nur SFW</option><option value="1">SFW &amp; NSFW</option><option value="2">Nur NSFW</option></select></div>
+        </footer>
+    </main>
+    <footer id="siteFooter">
+        <h2>Fruchtsaft</h2> <!-- Change to random pun via JS -->
+        <div class="copyright">&copy; 2019 Mike&nbsp;Kühnapfel</div>
+        <nav>
+            <ul>
+                <li><a href="https://veyxos.de/impressum">Impressum</a></li>
+                <li><a href="https://veyxos.de/datenschutz">Datenschutz</a></li>
+            </ul>
+        </nav>
+    </footer>
 </body>
 </html>

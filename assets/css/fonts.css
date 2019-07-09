@@ -1,0 +1,20 @@
+@font-face {
+	font-family: Gotham;
+	src: local(Gotham), local(Gotham-Book), local("Gotham Book"), src("/assets/fonts/Gotham/GothamBook.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: Gotham;
+	src: local(Gotham-Italic), local("Gotham Italic"), src("/assets/fonts/Gotham/GothamBookItalis.woff2") format("woff2");
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: Gotham;
+	src: local(Gotham-Light), local("Gotham Light"), src("/assets/fonts/Gotham/Gotham-Light.woff2") format("woff2");
+	font-weight: 300;
+	font-style: normal;
+}

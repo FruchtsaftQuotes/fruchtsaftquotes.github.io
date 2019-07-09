@@ -1,0 +1,171 @@
+#quoteWrapper
+	display: flex
+	justify-content: center
+	align-items: center
+	min-height: calc(100vh - var(--header-height) - 2 * var(--quote-footer-height))
+
+	$footer-break-point: 480px
+
+	@media (min-width: $footer-break-point)
+		min-height: calc(100vh - var(--header-height) - var(--quote-footer-height))
+
+	#quote
+		background: var(--almost-white)
+		margin: 2rem
+		border-radius: 2px
+		box-shadow: 0px 2px 3px #00000036
+		min-width: 300px
+		max-width: 700px
+		text-align: center
+		overflow: hidden
+		position: relative
+
+		#nsfwHelper
+			position: absolute
+			top: 0
+			right: 0
+			border-top: 2.3rem solid #d63031
+			border-left: 2.3rem solid transparent
+			width: 0
+			height: 0
+			display: none
+			cursor: help
+
+			img
+				filter: invert(1)
+				position: absolute
+				top: -1.98rem
+				left: -1.12rem
+				width: .85rem
+				height: .85rem
+
+		&.nsfw #nsfwHelper
+			display: block
+
+		.content
+			padding: .75rem
+
+		blockquote
+			margin: 0
+			padding: .75rem
+			font-size: 1.2rem
+			font-weight: 400
+			text-align: left
+
+		cite
+			display: block
+			margin: 0
+			padding: 0 .75rem .75rem
+			color: var(--dark-gray)
+			font-style: normal
+			width: 100%
+			text-align: left
+
+			&::before
+				content: "\2013\0020"
+
+		.action
+
+			button
+				width: 50%
+				padding: .5rem
+				color: var(--dark)
+				background-color: var(--dark-trans2)
+				text-transform: uppercase
+				transition: background .3s ease-in
+
+				&:first-child
+					padding-right: .75rem
+					border-right: 1px solid var(--almost-white)
+
+				&:last-child
+					padding-left: .75rem
+
+				&:hover
+					background: var(--fresh)
+					text-decoration: none
+					transition-timing-function: ease-out
+
+				&.inactive
+					cursor: not-allowed
+					background-color: var(--gray)
+
+
+#quoteFooter
+	height: calc(2 * var(--quote-footer-height))
+	background: #ffffff99
+	color: var(--dark)
+	display: grid
+	//grid: auto / repeat(3, 1fr)
+	grid: "codename codename" var(--quote-footer-height) "category nsfw" var(--quote-footer-height) / 1fr 1fr
+	box-shadow: 0px -2px 3px #00000036
+	width: 100%
+	max-width: 600px
+	margin: 0 auto
+
+	&> *
+		line-height: var(--quote-footer-height)
+		padding: 0 .5em
+		overflow: hidden
+		white-space: nowrap
+		text-overflow: ellipsis
+
+	&> :nth-child(1)
+		border-bottom: 1px solid var(--almost-white)
+
+	&> :nth-child(2)
+		border-width: 1px
+		border-color: var(--almost-white)
+		border-style: none solid none none
+
+	$foo: ("1": "codename", "2": "category", "3": "nsfw")
+
+	@each $i, $area in $foo
+		&> :nth-child(#{$i})
+			grid-area: unquote($area)
+
+	&> :not(:nth-child(1))
+		display: flex
+		justify-content: space-between
+		align-items: baseline
+
+	img
+		width: 1em
+		height: auto
+
+	select
+		background: none
+		font-family: var(--font)
+		font-size: 1em
+		width: calc(100% - 1.3em)
+		color: inherit
+		padding: .3em
+		line-height: 1
+		border: 0
+		border-radius: 0
+		height: 2em
+		-webkit-appearance: none
+		overflow: hidden
+		white-space: nowrap
+		text-overflow: ellipsis
+		cursor: pointer
+
+	@media (min-width: 480px)
+		grid: "codename category nsfw" var(--quote-footer-height) / 1fr 1fr 1fr
+		height: var(--quote-footer-height)
+
+		&> :nth-child(1)
+			border-bottom: none
+
+		&> :nth-child(2)
+			border-style: none solid none solid
+
+	@media (min-width: 601px)
+		border-radius: 3px 3px 0 0
+
+#category svg
+	width: .9rem
+	height: .9rem
+
+	path
+		fill: var(--light-gray)

@@ -1,0 +1,131 @@
+@import "fonts.css"
+
+\:root
+    --font: Gotham, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif
+
+    --lime: #aae50a
+    --fresh: #c3e85f
+    --dark-lime: #8bbb08
+    --dark-fresh: #afb02b
+    --dark-gray: #5a5a5a
+    --gray: #707070
+    --light-gray: #a2a2a2
+    --almost-white: #f1f1f1
+    --dark: #222f3e
+    --dark-trans: #222f3ecc
+    --dark-trans2: #222f3e23
+
+    font-family: var(--font)
+    color: var(--dark)
+
+    --header-height: 50px
+
+*
+    box-sizing: border-box
+
+html, body
+    margin: 0
+    padding: 0
+    width: 100%
+    min-height: 100vh
+
+body
+    background-image: linear-gradient(125deg, #2c3e50, #27ae60, #2080b9, #e74c3c, #8e44ad)
+    background-size: 400%
+    animation: bganim 20s infinite
+    scroll-behavior: smooth
+
+// LINKS
+a, button
+    display: inline
+    color: var(--lime)
+    text-decoration: none
+    background: none
+    border: none
+    font-family: inherit
+    font-size: 1em
+    cursor: pointer
+
+    &:hover
+        text-decoration: underline
+
+    // BUTTONS
+    @at-root
+        &.btn
+            color: var(--dark-lime)
+            padding: .25rem
+            border: 2px solid var(--dark-lime)
+            border-radius: 2px
+            position: relative
+            overflow: hidden
+            z-index: 7
+            transition: all 300ms ease-in-out 100ms
+            min-width: 5rem
+            text-align: center
+            text-transform: uppercase
+
+            &:hover
+                text-decoration: none
+                color: var(--almost-white)
+                transition-delay: 0ms
+
+                &::after
+                    bottom: 0
+
+            &::after
+                content: ""
+                width: 100%
+                height: 150%
+                background: var(--dark-lime)
+                position: absolute
+                border-radius: 40% 40% 0 0
+                bottom: -160%
+                left: 0
+                right: 0
+                z-index: -1
+                transition: all 300ms ease-in-out
+
+            &.prime
+                color: var(--almost-white)
+                background: var(--dark-lime)
+
+                &:hover
+                    color: var(--dark-lime)
+
+                &::after
+                    background: var(--almost-white)
+
+// LOADING ANIM
+.loading span
+    --tick-speed: 250ms
+    --round-delay: 200ms
+
+    display: inline-block
+    width: 1rem
+    height: 1rem
+    margin: .5rem
+    border-radius: 50%
+    background: var(--dark)
+    animation: loading calc(var(--tick-speed) * 4 + var(--round-delay)) infinite
+    transform-origin: center center
+
+    &:nth-child(2)
+        animation-delay: var(--tick-speed)
+
+    &:nth-child(3)
+        animation-delay: calc(var(--tick-speed) * 2)
+
+// MAIN
+main
+    min-height: calc(100vh - var(--header-height))
+    --quote-footer-height: 30px
+
+    &>
+        @import "quote"
+
+@import "header"
+@import "footer"
+@import "alert"
+
+@import "anims"
+
