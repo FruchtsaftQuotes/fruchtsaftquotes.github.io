@@ -77,6 +77,13 @@ fetch("https://api.fruchtsaft.veyxos.de/random/pun").then(r => r.json()).then(p 
     document.querySelector("#siteFooter h2").innerHTML = p.text
 }).catch(e => console.error(e)).finally(console.log("Pun set"))
 
+document.querySelector('#siteFooter h2').addEventListener('click', function () {
+    const e = this;
+    fetch("https://api.fruchtsaft.veyxos.de/random/pun").then(r => r.json()).then(p => {
+        this.innerHTML = p.text
+    }).catch(e => console.error(e)).finally(console.log("Pun set"))
+});
+
 // --------
 
 document.querySelector("#new").addEventListener("click", newQuote)
